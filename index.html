@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Typing Speed Test</h1>
+        <div class="button-group">
+            <button id="start-btn">Start Test</button>
+            <button id="restart-btn">Restart Test</button>
+        </div>
+        <div class="controls" style="display: none;">
+            <div class="results">
+                <p>Time: <span id="timer">5:00</span></p>
+                <p>WPM: <span id="wpm">0</span></p>
+                <p>Accuracy: <span id="accuracy">100</span>%</p>
+            </div>
+        </div>
+        <div class="test-area" style="display: none;">
+            <div id="text-display">
+                <!-- Paragraph text wrapped in spans will be here -->
+            </div>
+            <div id="typed-lines" class="hidden">
+                <!-- Lines will be appended here as the user types -->
+            </div>
+        </div>
+        <div id="final-score" class="hidden">
+            <h2 id="result-message"></h2>
+            <p>Your WPM: <span id="final-wpm"></span></p>
+            <p>Accuracy: <span id="final-accuracy"></span>%</p>
+            <button id="retry-btn">Try Again</button>
+        </div>
+        
+        <!-- Add the laser zap element -->
+        <div id="laser-zap"></div>
+    </div>
+    
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+    
+    <!-- Canvas Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
