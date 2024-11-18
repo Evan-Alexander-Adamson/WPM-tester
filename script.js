@@ -235,8 +235,8 @@ const triggerLaserZap = () => {
 
 // Function to handle key presses
 const handleKeyPress = (e) => {
-    // Prevent spacebar from triggering button clicks
-    if (e.key === ' ' && e.target === document.body) {
+    // Prevent spacebar from scrolling or triggering buttons
+    if (e.code === 'Space') {
         e.preventDefault();
     }
 

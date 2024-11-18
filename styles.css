@@ -7,18 +7,6 @@ body {
     box-sizing: border-box;
     position: relative;
     overflow-x: hidden;
-    background-image: 
-        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
-        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
-    background-size: 550px 550px, 350px 350px, 250px 250px;
-    background-position: 0 0, 40px 60px, 130px 270px;
-    animation: starsMove 120s linear infinite;
-}
-
-@keyframes starsMove {
-    from { background-position: 0 0, 40px 60px, 130px 270px; }
-    to { background-position: 550px 550px, 390px 410px, 380px 520px; }
 }
 
 .container {
@@ -87,37 +75,13 @@ h1 {
 #text-display span.correct {
     color: #4dff4d;
     position: relative;
-    animation: glow 0.5s ease forwards;
-    text-shadow: 0 0 15px #4dff4d,
-                 0 0 25px #4dff4d,
-                 0 0 35px #4dff4d;
-}
-
-@keyframes glow {
-    0% { 
-        text-shadow: 0 0 15px #4dff4d,
-                     0 0 25px #4dff4d,
-                     0 0 35px #4dff4d;
-    }
-    50% { 
-        text-shadow: 0 0 20px #4dff4d,
-                     0 0 35px #4dff4d,
-                     0 0 50px #4dff4d,
-                     0 0 65px #4dff4d;
-    }
-    100% { 
-        text-shadow: 0 0 15px #4dff4d,
-                     0 0 25px #4dff4d,
-                     0 0 35px #4dff4d;
-    }
+    text-shadow: 0 0 5px rgba(77, 255, 77, 0.5);
 }
 
 #text-display span.incorrect {
     color: #ff4d4d;
     animation: shake 0.3s ease;
-    text-shadow: 0 0 15px #ff4d4d,
-                 0 0 25px #ff4d4d,
-                 0 0 35px #ff4d4d;
+    text-shadow: 0 0 5px rgba(255, 77, 77, 0.5);
 }
 
 .controls {
@@ -294,4 +258,15 @@ h1 {
         transform: translate(-50%, -50%) scale(1);
         opacity: 0;
     }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* For the container shake effect */
+.container.shake {
+    animation: shake 0.2s ease-in-out;
 }
