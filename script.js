@@ -94,8 +94,13 @@ const initializeTest = () => {
     wrapCharacters();
     const spans = textDisplay.querySelectorAll('span');
     spans.forEach(span => {
-        span.classList.remove('correct', 'incorrect');
+        span.classList.remove('correct', 'incorrect', 'current');
     });
+    
+    // Add cursor to first character
+    if (spans.length > 0) {
+        spans[0].classList.add('current');
+    }
     
     // Initialize timer
     startTime = new Date();
@@ -253,6 +258,9 @@ const handleKeyPress = (e) => {
     const spans = textDisplay.querySelectorAll('span');
     if (currentCharIndex >= spans.length) return;
 
+    // Remove current cursor from previous position
+    spans.forEach(span => span.classList.remove('current'));
+    
     // Handle backspace
     if (e.key === 'Backspace' && currentCharIndex > 0) {
         e.preventDefault();
@@ -264,6 +272,8 @@ const handleKeyPress = (e) => {
         }
         
         currentSpan.classList.remove('correct', 'incorrect');
+        // Add cursor to new position
+        currentSpan.classList.add('current');
         totalTyped--;
         return;
     }
@@ -289,6 +299,11 @@ const handleKeyPress = (e) => {
     }
 
     currentCharIndex++;
+    
+    // Add cursor to next position if not at the end
+    if (currentCharIndex < spans.length) {
+        spans[currentCharIndex].classList.add('current');
+    }
 
     // Check if we've reached the end of the text
     if (currentCharIndex === spans.length) {

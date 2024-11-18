@@ -270,3 +270,15 @@ h1 {
 .container.shake {
     animation: shake 0.2s ease-in-out;
 }
+
+/* Add these styles for the cursor */
+#text-display span.current {
+    border-bottom: 2px solid #00ccff;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% {
+        border-bottom-color: transparent;
+    }
+}
